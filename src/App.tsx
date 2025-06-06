@@ -13,7 +13,7 @@ const App: React.FC = () => {
   return (
     <main>
       <h1>Image Gallery</h1>
-      <CardsContainer cards={data!} />
+      {data && <CardsContainer cards={data} />}
     </main>
   );
 };

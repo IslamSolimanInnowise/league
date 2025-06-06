@@ -1,4 +1,5 @@
 import type { CardInterface } from "../../types";
+import * as Styled from "./card.styles";
 
 function openModal(link: string) {
   console.log(link);
@@ -10,11 +11,11 @@ const Card: React.FC<CardInterface> = ({ thumbnailUrl, title, url }) => {
   };
 
   return (
-    <figure>
+    <Styled.Figure>
       <img src={thumbnailUrl} alt={title} />
       <figcaption>{title}</figcaption>
       <button onClick={() => handleClick(url)}>See image in full size</button>
-    </figure>
+    </Styled.Figure>
   );
 };
 

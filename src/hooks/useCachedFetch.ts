@@ -64,5 +64,5 @@ export const useCachedFetch = <T>(url: string) => {
     return () => abortController.abort();
   }, [url]);
 
-  return { data, error, loading };
+  return { data, setData, error, loading };
 };
