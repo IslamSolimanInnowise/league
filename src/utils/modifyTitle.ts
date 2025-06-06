@@ -9,14 +9,13 @@ export const modifyTitle = (title: string, searchValue: string) => {
           `<strong><em>${word}</em></strong>`,
           {
             ALLOWED_TAGS: ["em", "strong"],
-            ALLOWED_ATTR: [],
           }
         );
 
         return sanitized;
+      } else {
+        return word;
       }
-
-      return word;
     })
     .join(" ");
 };

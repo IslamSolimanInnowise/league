@@ -13,7 +13,6 @@ const Card: React.FC<CardInterface> = ({ thumbnailUrl, title, url }) => {
 
   const plainTitle = DOMPurify.sanitize(title, {
     ALLOWED_TAGS: [],
-    ALLOWED_ATTR: [],
   });
 
   return (
