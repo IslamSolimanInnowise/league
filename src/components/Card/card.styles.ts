@@ -12,7 +12,7 @@ export const Figure = styled.figure`
 
     return css`
       background-color: ${cardBg};
-      width: 20rem;
+      width: 18rem;
       height: 15rem;
       border-radius: 1rem;
       padding: 1rem;

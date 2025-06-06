@@ -6,7 +6,7 @@ interface CacheStore<U> {
 }
 
 export const useCachedFetch = <T>(url: string) => {
-  const [data, setData] = useState<T | null>(null);
+  const [data, setData] = useState<T>();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -57,5 +57,5 @@ export const useCachedFetch = <T>(url: string) => {
     fetchData();
   }, [url]);
 
-  return { data, setData, error, loading };
+  return { data, error, loading };
 };

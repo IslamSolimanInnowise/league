@@ -1,5 +1,6 @@
 import type { CardInterface } from "../../types";
 import * as Styled from "./card.styles";
+import DOMPurify from "dompurify";
 
 function openModal(link: string) {
   console.log(link);
@@ -10,10 +11,15 @@ const Card: React.FC<CardInterface> = ({ thumbnailUrl, title, url }) => {
     openModal(link);
   };
 
+  const plainTitle = DOMPurify.sanitize(title, {
+    ALLOWED_TAGS: [],
+    ALLOWED_ATTR: [],
+  });
+
   return (
     <Styled.Figure>
-      <img src={thumbnailUrl} alt={title} />
-      <figcaption>{title}</figcaption>
+      <img src={thumbnailUrl} alt={plainTitle} />
+      <figcaption dangerouslySetInnerHTML={{ __html: title }} />
       <button onClick={() => handleClick(url)}>See image in full size</button>
     </Styled.Figure>
   );

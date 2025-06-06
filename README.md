@@ -4,8 +4,8 @@
 
 ## Stage 2: Fetch and render data => done
 
-## Stage 3: Add filtering => ongoing
+## Stage 3: Add filtering => done
 
-## Stage 4: Add Modals => not started
+## Stage 4: Add Modals => ongoing
 
 ## Stage 5: Add Testing => not started

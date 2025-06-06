@@ -5,9 +5,16 @@ declare module "styled-components" {
     backgroundColor: string;
     color: string;
     transition: string;
+    // Card
     cardBg: string;
     cardBorderColor: string;
     cardHoverBg: string;
     cardHoverBorderColor: string;
+
+    // Header
+    headerBg: string;
+    headerShadow: string;
+
+    errorColor: string;
   }
 }
