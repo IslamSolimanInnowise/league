@@ -1,27 +1,5 @@
-// import { sanitize } from "dompurify";
-import DOMPurify from "dompurify";
 import type { CardInterface } from "../types";
-
-const modifyTitle = (title: string, searchValue: string) => {
-  return title
-    .split(" ")
-    .map((word) => {
-      if (word.toLowerCase().includes(searchValue.toLowerCase())) {
-        const sanitized = DOMPurify.sanitize(
-          `<strong><em>${word}</em></strong>`,
-          {
-            ALLOWED_TAGS: ["em", "strong"],
-            ALLOWED_ATTR: [],
-          }
-        );
-
-        return sanitized;
-      }
-
-      return word;
-    })
-    .join(" ");
-};
+import { modifyTitle } from "./modifyTitle";
 
 export const filterArr = (arr: CardInterface[], titleValue: string) => {
   const filtered = arr
