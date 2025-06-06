@@ -11,9 +11,6 @@ export const useCachedFetch = <T>(url: string) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const abortController = new AbortController();
-    const signal = abortController.signal;
-
     const fetchData = async () => {
       const cache = localStorage.getItem(url);
 
@@ -32,7 +29,7 @@ export const useCachedFetch = <T>(url: string) => {
         setError("");
         setLoading(true);
 
-        const response = await fetch(url, { signal });
+        const response = await fetch(url);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -40,16 +37,14 @@ export const useCachedFetch = <T>(url: string) => {
 
         const responseData = await response.json();
 
-        if (!signal.aborted) {
-          setData(responseData);
+        setData(responseData);
 
-          const newCacheData = {
-            time: Date.now(),
-            cache: responseData,
-          };
+        const newCacheData = {
+          time: Date.now(),
+          cache: responseData,
+        };
 
-          localStorage.setItem(url, JSON.stringify(newCacheData));
-        }
+        localStorage.setItem(url, JSON.stringify(newCacheData));
       } catch (error) {
         if (error instanceof Error) {
           setError(error.message);
@@ -60,8 +55,6 @@ export const useCachedFetch = <T>(url: string) => {
     };
 
     fetchData();
-
-    return () => abortController.abort();
   }, [url]);
 
   return { data, setData, error, loading };

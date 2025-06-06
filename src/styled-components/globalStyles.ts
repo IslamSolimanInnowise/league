@@ -15,4 +15,8 @@ body{
     background-color: ${({ theme }) => theme.backgroundColor};
     color: ${({ theme }) => theme.color};
 }
+
+h1{
+    text-align: center;
+}
 `;
