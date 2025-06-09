@@ -10,8 +10,8 @@
 
 ## Stage 5: Add Modals => done
 
-## Stage 6: fix imports (alias) => not started
+## Stage 6: Add Testing => in progress
 
-## Stage 7: Add Testing => not started
+## stage 7: Add Documentation => not started
 
-## stage 8: Add Documentation => not started
+## Stage 8: fix imports (alias) => not started

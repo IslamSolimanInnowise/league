@@ -6,7 +6,7 @@ interface ModalProps extends React.HTMLAttributes<HTMLDialogElement> {
 
 const Modal: React.FC<ModalProps> = ({ ref, children, ...props }) => {
   return createPortal(
-    <dialog {...props} ref={ref}>
+    <dialog {...props} ref={ref} role="dialog">
       {children}
     </dialog>,
     document.getElementById("modal-root")!
