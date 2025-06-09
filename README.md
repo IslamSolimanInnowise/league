@@ -13,3 +13,5 @@
 ## Stage 6: fix imports (alias) => not started
 
 ## Stage 7: Add Testing => not started
+
+## stage 8: Add Documentation => not started
