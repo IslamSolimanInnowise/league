@@ -16,7 +16,8 @@ const GalleryView: React.FC<GalleryViewProps> = ({ inputVal }) => {
     error,
     loading,
   } = useCachedFetch<CardInterface[]>(
-    `https://jsonplaceholder.typicode.com/albums/1/photos`
+    // `https://jsonplaceholder.typicode.com/albums/1/photos`
+    `https://picsum.photos/images`
   );
 
   const [filteredData, setFilteredData] = useState<CardInterface[]>([]);
@@ -35,8 +36,8 @@ const GalleryView: React.FC<GalleryViewProps> = ({ inputVal }) => {
     }
   }, [debouncedInputVal, originalData]);
 
-  if (loading) return <h2>Loading...</h2>;
-  if (error) return <h2>Error: {error}</h2>;
+  if (loading) return <Styled.LoadingH2>Loading...</Styled.LoadingH2>;
+  if (error) return <Styled.ErrorH2>Error: {error}</Styled.ErrorH2>;
 
   return filteredData.length ? (
     <CardsContainer cards={filteredData} />

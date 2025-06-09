@@ -6,6 +6,10 @@
 
 ## Stage 3: Add filtering => done
 
-## Stage 4: Add Modals => ongoing
+## stage 4: Fix fetching => ongoing
 
-## Stage 5: Add Testing => not started
+## Stage 5: Add Modals => not started
+
+## Stage 6: fix imports (alias) => not started
+
+## Stage 7: Add Testing => not started

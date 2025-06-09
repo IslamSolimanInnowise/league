@@ -16,5 +16,6 @@ declare module "styled-components" {
     headerShadow: string;
 
     errorColor: string;
+    loadingColor: string;
   }
 }

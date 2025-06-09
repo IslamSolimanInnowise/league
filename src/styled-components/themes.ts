@@ -11,4 +11,5 @@ export const theme: DefaultTheme = {
   headerBg: "#FFFFFF",
   headerShadow: "0 0.5rem 1rem rgba(0, 0, 0, 0.1)",
   errorColor: "#D32F2F",
+  loadingColor: "#1976D2",
 };
