@@ -8,7 +8,7 @@
 
 ## stage 4: Fix fetching => done
 
-## Stage 5: Add Modals => not started
+## Stage 5: Add Modals => on going
 
 ## Stage 6: fix imports (alias) => not started
 
