@@ -60,3 +60,9 @@ padding: 0.5rem 1rem;
     `;
   }}
 `;
+
+export const ModalImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
