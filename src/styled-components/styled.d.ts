@@ -10,6 +10,10 @@ declare module "styled-components" {
     cardBorderColor: string;
     cardHoverBg: string;
     cardHoverBorderColor: string;
+    cardBtnColor: string;
+    cardBtnBorderColor: string;
+    cardBtnHoverColor: string;
+    cardBtnHoverBg: string;
 
     // Header
     headerBg: string;

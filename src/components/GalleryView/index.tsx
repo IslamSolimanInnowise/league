@@ -15,10 +15,7 @@ const GalleryView: React.FC<GalleryViewProps> = ({ inputVal }) => {
     data: originalData,
     error,
     loading,
-  } = useCachedFetch<CardInterface[]>(
-    // `https://jsonplaceholder.typicode.com/albums/1/photos`
-    `https://picsum.photos/images`
-  );
+  } = useCachedFetch<CardInterface[]>(`https://picsum.photos/v2/list`);
 
   const [filteredData, setFilteredData] = useState<CardInterface[]>([]);
   const debouncedInputVal = useDebounce(inputVal);

@@ -13,7 +13,7 @@ export const Figure = styled.figure`
     return css`
       background-color: ${cardBg};
       width: 18rem;
-      height: 15rem;
+      height: 18rem;
       border-radius: 1rem;
       padding: 1rem;
       display: flex;
@@ -27,6 +27,36 @@ export const Figure = styled.figure`
         background-color: ${cardHoverBg};
         border-color: ${cardHoverBorderColor};
       }
+    `;
+  }}
+`;
+
+export const Thumbnail = styled.img`
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+`;
+
+export const Button = styled.button`
+  ${({ theme }) => {
+    const {
+      cardBtnColor,
+      transition,
+      cardBtnHoverBg,
+      cardBtnHoverColor,
+      cardBtnBorderColor,
+    } = theme;
+
+    return css`
+padding: 0.5rem 1rem;
+  border: 1px solid ${cardBtnBorderColor};
+  border-radius: 0.5rem;
+  color:${cardBtnColor};
+  cursor: pointer;
+  transition: ${transition};
+  &:hover {
+    background-color: ${cardBtnHoverBg};
+    color: ${cardBtnHoverColor};
     `;
   }}
 `;

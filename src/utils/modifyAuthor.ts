@@ -1,7 +1,7 @@
 import DOMPurify from "dompurify";
 
-export const modifyTitle = (title: string, searchValue: string) => {
-  return title
+export const modifyAuthor = (author: string, searchValue: string) => {
+  return author
     .split(" ")
     .map((word) => {
       if (word.toLowerCase().includes(searchValue.toLowerCase())) {

@@ -6,20 +6,22 @@ function openModal(link: string) {
   console.log(link);
 }
 
-const Card: React.FC<CardInterface> = ({ thumbnailUrl, title, url }) => {
+const Card: React.FC<CardInterface> = ({ download_url, author }) => {
   const handleClick = (link: string) => {
     openModal(link);
   };
 
-  const plainTitle = DOMPurify.sanitize(title, {
+  const plainTitle = DOMPurify.sanitize(author, {
     ALLOWED_TAGS: [],
   });
 
   return (
     <Styled.Figure>
-      <img src={thumbnailUrl} alt={plainTitle} />
-      <figcaption dangerouslySetInnerHTML={{ __html: title }} />
-      <button onClick={() => handleClick(url)}>See image in full size</button>
+      <Styled.Thumbnail src={download_url} alt={plainTitle} />
+      <figcaption dangerouslySetInnerHTML={{ __html: author }} />
+      <Styled.Button onClick={() => handleClick(download_url)}>
+        See image in full size
+      </Styled.Button>
     </Styled.Figure>
   );
 };

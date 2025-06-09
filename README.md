@@ -6,7 +6,7 @@
 
 ## Stage 3: Add filtering => done
 
-## stage 4: Fix fetching => ongoing
+## stage 4: Fix fetching => done
 
 ## Stage 5: Add Modals => not started
 

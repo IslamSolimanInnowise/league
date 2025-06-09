@@ -9,9 +9,9 @@ interface CardContainerProps {
 const CardsContainer: React.FC<CardContainerProps> = ({ cards }) => {
   return (
     <Styled.Container>
-      {cards?.map((card) => {
+      {cards?.map((card, i) => {
         return (
-          <li key={card.id}>
+          <li key={card.id} tabIndex={i}>
             <Card {...card} />
           </li>
         );
