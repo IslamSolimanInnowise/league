@@ -16,8 +16,11 @@ const CardsContainer: React.FC<CardContainerProps> = ({ cards }) => {
   const handleCardClick = (modalImageUrl: string, author: string) => {
     setModalImageUrl(() => modalImageUrl);
     setModalAuthor(() => author);
-
     modalRef.current?.showModal();
+  };
+
+  const onClose = () => {
+    modalRef.current?.close();
   };
 
   return (
@@ -35,6 +38,8 @@ const CardsContainer: React.FC<CardContainerProps> = ({ cards }) => {
           ref={modalRef}
           imageUrl={modalImageUrl}
           author={modalAuthor}
+          onClick={onClose}
+          onBlur={onClose}
         />
       )}
     </Styled.Container>

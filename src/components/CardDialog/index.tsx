@@ -1,15 +1,25 @@
-import Modal from "../../ui/Modal";
+import * as Styled from "./card-dialog.styles";
+
 interface CardDialogProps {
   ref: React.Ref<HTMLDialogElement | null>;
   imageUrl: string;
   author: string;
+  onClick: () => void;
+  onBlur: () => void;
 }
 
-const CardDialog: React.FC<CardDialogProps> = ({ ref, imageUrl, author }) => {
+const CardDialog: React.FC<CardDialogProps> = ({
+  ref,
+  imageUrl,
+  author,
+  onClick,
+  onBlur,
+}) => {
   return (
-    <Modal ref={ref}>
-      <img src={imageUrl} alt={`an image by ${author}`} />
-    </Modal>
+    <Styled.StyledModal ref={ref} onBlur={onBlur}>
+      <Styled.closeButton onClick={onClick}>Close</Styled.closeButton>
+      <Styled.ModalImage src={imageUrl} alt={`an image by ${author}`} />
+    </Styled.StyledModal>
   );
 };
 export default CardDialog;
