@@ -12,6 +12,15 @@
 
 ## Stage 6: Add Testing => done
 
-## Stage 7: fix imports (alias) => in progress
+## Stage 7: Refactor => in progress
 
-## stage 8: Add Documentation => not started
+- переименовать interface на I+тип
+- React.FC => FC
+- filterArr => filterCardsArr
+- filterArr (filter + map) => reduce
+- useState => useContext (app.tsx)
+- Retest
+
+## Stage 8: fix imports (alias) => in progress
+
+## stage 9: Add Documentation => not started

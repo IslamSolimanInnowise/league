@@ -2,8 +2,8 @@ import * as Styled from "./card-dialog.styles";
 
 interface CardDialogProps {
   ref: React.Ref<HTMLDialogElement | null>;
-  imageUrl: string;
-  author: string;
+  imageUrl: string | null;
+  author: string | null;
   onClick: () => void;
   onBlur: () => void;
 }
@@ -18,7 +18,9 @@ const CardDialog: React.FC<CardDialogProps> = ({
   return (
     <Styled.StyledModal ref={ref} onBlur={onBlur}>
       <Styled.closeButton onClick={onClick}>Close</Styled.closeButton>
-      <Styled.ModalImage src={imageUrl} alt={`an image by ${author}`} />
+      {imageUrl && author && (
+        <Styled.ModalImage src={imageUrl} alt={`an image by ${author}`} />
+      )}
     </Styled.StyledModal>
   );
 };

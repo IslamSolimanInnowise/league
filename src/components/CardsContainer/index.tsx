@@ -10,8 +10,8 @@ interface CardContainerProps {
 
 const CardsContainer: React.FC<CardContainerProps> = ({ cards }) => {
   const modalRef = useRef<HTMLDialogElement>(null);
-  const [modalImageUrl, setModalImageUrl] = useState("");
-  const [modalAuthor, setModalAuthor] = useState("");
+  const [modalImageUrl, setModalImageUrl] = useState<string | null>(null);
+  const [modalAuthor, setModalAuthor] = useState<string | null>(null);
 
   const handleCardClick = (modalImageUrl: string, author: string) => {
     setModalImageUrl(() => modalImageUrl);
@@ -33,15 +33,13 @@ const CardsContainer: React.FC<CardContainerProps> = ({ cards }) => {
         );
       })}
 
-      {modalAuthor && modalImageUrl && (
-        <CardDialog
-          ref={modalRef}
-          imageUrl={modalImageUrl}
-          author={modalAuthor}
-          onClick={onClose}
-          onBlur={onClose}
-        />
-      )}
+      <CardDialog
+        ref={modalRef}
+        imageUrl={modalImageUrl}
+        author={modalAuthor}
+        onClick={onClose}
+        onBlur={onClose}
+      />
     </Styled.Container>
   );
 };

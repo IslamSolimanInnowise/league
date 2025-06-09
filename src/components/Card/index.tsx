@@ -1,4 +1,4 @@
-import type { CardInterface } from "../../types";
+import { CardInterface } from "@/types";
 import * as Styled from "./card.styles";
 import DOMPurify from "dompurify";
 
