@@ -1,0 +1,1 @@
+export { filterCardsArr } from './filterCardsArr';

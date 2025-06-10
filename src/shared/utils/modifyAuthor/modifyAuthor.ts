@@ -1,21 +1,18 @@
-import DOMPurify from "dompurify";
+import DOMPurify from 'dompurify';
 
 export const modifyAuthor = (author: string, searchValue: string) => {
   return author
-    .split(" ")
+    .split(' ')
     .map((word) => {
       if (word.toLowerCase().includes(searchValue.toLowerCase())) {
-        const sanitized = DOMPurify.sanitize(
-          `<strong><em>${word}</em></strong>`,
-          {
-            ALLOWED_TAGS: ["em", "strong"],
-          }
-        );
+        const sanitized = DOMPurify.sanitize(`<strong><em>${word}</em></strong>`, {
+          ALLOWED_TAGS: ['em', 'strong'],
+        });
 
         return sanitized;
       } else {
         return word;
       }
     })
-    .join(" ");
+    .join(' ');
 };

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 interface ICacheStore<U> {
   time: number;
@@ -7,7 +7,7 @@ interface ICacheStore<U> {
 
 export const useCachedFetch = <T>(url: string) => {
   const [data, setData] = useState<T>();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export const useCachedFetch = <T>(url: string) => {
       }
 
       try {
-        setError("");
+        setError('');
         setLoading(true);
 
         const response = await fetch(url);

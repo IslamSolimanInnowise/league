@@ -1,5 +1,5 @@
-import Modal from "@/shared/ui/Modal";
-import styled, { css } from "styled-components";
+import Modal from '@/shared/ui/Modal';
+import styled, { css } from 'styled-components';
 
 export const StyledModal = styled(Modal)`
   padding: 1rem;
@@ -16,13 +16,7 @@ export const StyledModal = styled(Modal)`
 
 export const closeButton = styled.button`
   ${({ theme }) => {
-    const {
-      cardBtnColor,
-      transition,
-      cardBtnHoverBg,
-      cardBtnHoverColor,
-      cardBtnBorderColor,
-    } = theme;
+    const { cardBtnColor, transition, cardBtnHoverBg, cardBtnHoverColor, cardBtnBorderColor } = theme;
 
     return css`
     position: absolute;

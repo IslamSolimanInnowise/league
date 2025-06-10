@@ -1,5 +1,5 @@
-import { ICard } from "@/types";
-import { modifyAuthor } from "./modifyAuthor";
+import { ICard } from '@/types';
+import { modifyAuthor } from '../modifyAuthor';
 
 export const filterCardsArr = (arr: ICard[], authorValue: string) => {
   const filtered = arr.reduce((acc, card) => {

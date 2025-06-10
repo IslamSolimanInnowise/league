@@ -1,14 +1,8 @@
-import { css, styled } from "styled-components";
+import { css, styled } from 'styled-components';
 
 export const Figure = styled.figure`
   ${({ theme }) => {
-    const {
-      cardBg,
-      cardBorderColor,
-      cardHoverBg,
-      cardHoverBorderColor,
-      transition,
-    } = theme;
+    const { cardBg, cardBorderColor, cardHoverBg, cardHoverBorderColor, transition } = theme;
 
     return css`
       background-color: ${cardBg};
@@ -39,13 +33,7 @@ export const Thumbnail = styled.img`
 
 export const Button = styled.button`
   ${({ theme }) => {
-    const {
-      cardBtnColor,
-      transition,
-      cardBtnHoverBg,
-      cardBtnHoverColor,
-      cardBtnBorderColor,
-    } = theme;
+    const { cardBtnColor, transition, cardBtnHoverBg, cardBtnHoverColor, cardBtnBorderColor } = theme;
 
     return css`
 padding: 0.5rem 1rem;

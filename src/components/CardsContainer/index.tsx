@@ -1,8 +1,8 @@
-import { FC, useRef, useState } from "react";
-import type { ICard } from "@/types";
-import Card from "@components/Card";
-import CardDialog from "@components/CardDialog";
-import * as Styled from "./cards-container.styles";
+import { FC, useRef, useState } from 'react';
+import type { ICard } from '@/types';
+import Card from '@components/Card';
+import CardDialog from '@components/CardDialog';
+import * as Styled from './cards-container.styles';
 
 interface ICardContainerProps {
   cards: ICard[];
@@ -33,13 +33,7 @@ const CardsContainer: FC<ICardContainerProps> = ({ cards }) => {
         );
       })}
 
-      <CardDialog
-        ref={modalRef}
-        imageUrl={modalImageUrl}
-        author={modalAuthor}
-        onClick={onClose}
-        onBlur={onClose}
-      />
+      <CardDialog ref={modalRef} imageUrl={modalImageUrl} author={modalAuthor} onClick={onClose} onBlur={onClose} />
     </Styled.Container>
   );
 };
