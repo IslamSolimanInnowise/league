@@ -3,7 +3,7 @@ import type { ICard } from '@/types';
 import Card from '@components/Card';
 import CardDialog from '@components/CardDialog';
 import * as Styled from './cards-container.styles';
-import { modifyImgUrl } from '@/shared/utils/modifyImgUrl/modifyImgUrl';
+import { modifyImgUrl } from '@/shared/utils/modifyImgUrl';
 
 interface ICardContainerProps {
   cards: ICard[];

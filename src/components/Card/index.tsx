@@ -2,7 +2,7 @@ import { ICard } from '@/types';
 import * as Styled from './card.styles';
 import DOMPurify from 'dompurify';
 import { FC } from 'react';
-import { modifyImgUrl } from '@/shared/utils/modifyImgUrl/modifyImgUrl';
+import { modifyImgUrl } from '@/shared/utils/modifyImgUrl';
 
 interface ICardProps {
   handleClick: (modalImageUrl: string, author: string) => void;

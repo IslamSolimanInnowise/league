@@ -8,7 +8,7 @@ import type { ICard } from '@/types';
 const mockCard: ICard = {
   id: '1',
   author: 'Test Author',
-  download_url: 'test-url.jpg',
+  download_url: 'test-url/800/600',
 };
 
 const mockHandleClick = jest.fn();
@@ -30,11 +30,11 @@ describe('Card Component', () => {
     setup();
     expect(screen.getByText('Test Author')).toBeInTheDocument();
   });
-
   test('renders the thumbnail image correctly', () => {
     setup();
     const image = screen.getByRole('img');
-    expect(image).toHaveAttribute('src', 'test-url.jpg');
+    // The URL should be modified to 600/400 as per modifyImgUrl utility
+    expect(image).toHaveAttribute('src', 'test-url/600/400');
     expect(image).toHaveAttribute('alt', 'an image by Test Author');
   });
 
@@ -49,7 +49,7 @@ describe('Card Component', () => {
     const button = screen.getByText(/see image in full size/i);
     fireEvent.click(button);
     expect(mockHandleClick).toHaveBeenCalledTimes(1);
-    expect(mockHandleClick).toHaveBeenCalledWith('test-url.jpg', 'Test Author');
+    expect(mockHandleClick).toHaveBeenCalledWith('test-url/800/600', 'Test Author');
   });
 
   test('sanitizes HTML in author name for alt text', () => {
