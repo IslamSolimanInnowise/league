@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
 import { useCachedFetch } from "../../hooks/useCachedFetch";
-import type { CardInterface } from "../../types";
+import type { ICard } from "../../types";
 import useDebounce from "../../hooks/useDebounce";
 import { filterArr } from "../../utils/filterArr";
 import CardsContainer from "../CardsContainer";
 import * as Styled from "./gallery-view-styles";
 
-interface GalleryViewProps {
+interface IGalleryViewProps {
   inputVal: string;
 }
 
-const GalleryView: React.FC<GalleryViewProps> = ({ inputVal }) => {
+const GalleryView: React.FC<IGalleryViewProps> = ({ inputVal }) => {
   const {
     data: originalData,
     error,
     loading,
-  } = useCachedFetch<CardInterface[]>(`https://picsum.photos/v2/list`);
+  } = useCachedFetch<ICard[]>(`https://picsum.photos/v2/list`);
 
-  const [filteredData, setFilteredData] = useState<CardInterface[]>([]);
+  const [filteredData, setFilteredData] = useState<ICard[]>([]);
   const debouncedInputVal = useDebounce(inputVal);
 
   useEffect(() => {

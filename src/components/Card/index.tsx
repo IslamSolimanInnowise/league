@@ -1,13 +1,13 @@
-import { CardInterface } from "@/types";
+import { ICard } from "@/types";
 import * as Styled from "./card.styles";
 import DOMPurify from "dompurify";
 
-interface CardProps {
+interface ICardProps {
   handleClick: (modalImageUrl: string, author: string) => void;
-  card: CardInterface;
+  card: ICard;
 }
 
-const Card: React.FC<CardProps> = ({
+const Card: React.FC<ICardProps> = ({
   card: { download_url, author },
   handleClick,
 }) => {

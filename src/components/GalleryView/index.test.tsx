@@ -3,14 +3,14 @@ import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styled-components/themes";
 import GalleryView from "./index";
-import type { CardInterface } from "../../types";
+import type { ICard } from "../../types";
 import { useCachedFetch } from "../../hooks/useCachedFetch";
 
 // Mock the custom hook
 jest.mock("../../hooks/useCachedFetch");
 const mockedUseCachedFetch = useCachedFetch as jest.Mock;
 
-const mockData: CardInterface[] = [
+const mockData: ICard[] = [
   {
     id: "1",
     author: "Author 1",

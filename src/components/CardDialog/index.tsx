@@ -1,6 +1,6 @@
 import * as Styled from "./card-dialog.styles";
 
-interface CardDialogProps {
+interface ICardDialogProps {
   ref: React.Ref<HTMLDialogElement | null>;
   imageUrl: string | null;
   author: string | null;
@@ -8,7 +8,7 @@ interface CardDialogProps {
   onBlur: () => void;
 }
 
-const CardDialog: React.FC<CardDialogProps> = ({
+const CardDialog: React.FC<ICardDialogProps> = ({
   ref,
   imageUrl,
   author,

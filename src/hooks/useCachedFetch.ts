@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-interface CacheStore<U> {
+interface ICacheStore<U> {
   time: number;
   cache: U;
 }
@@ -15,7 +15,7 @@ export const useCachedFetch = <T>(url: string) => {
       const cache = localStorage.getItem(url);
 
       if (cache) {
-        const cachedData: CacheStore<T> = JSON.parse(cache);
+        const cachedData: ICacheStore<T> = JSON.parse(cache);
         const now = Date.now();
         const fiveMinutes = 5 * 60 * 1000;
 

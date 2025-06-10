@@ -3,11 +3,11 @@ import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styled-components/themes";
 import CardsContainer from "./index";
-import type { CardInterface } from "../../types";
+import type { ICard } from "../../types";
 
 let portalRoot: HTMLElement;
 
-const mockCards: CardInterface[] = [
+const mockCards: ICard[] = [
   {
     id: "1",
     author: "Author 1",

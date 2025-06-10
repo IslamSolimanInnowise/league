@@ -3,9 +3,9 @@ import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styled-components/themes";
 import Card from "./index";
-import type { CardInterface } from "../../types";
+import type { ICard } from "../../types";
 
-const mockCard: CardInterface = {
+const mockCard: ICard = {
   id: "1",
   author: "Test Author",
   download_url: "test-url.jpg",
@@ -53,7 +53,7 @@ describe("Card Component", () => {
   });
 
   test("sanitizes HTML in author name for alt text", () => {
-    const cardWithHtml: CardInterface = {
+    const cardWithHtml: ICard = {
       ...mockCard,
       author: "<script>alert('xss')</script>Test Author",
     };

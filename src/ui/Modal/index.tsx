@@ -1,10 +1,10 @@
 import { createPortal } from "react-dom";
 
-interface ModalProps extends React.HTMLAttributes<HTMLDialogElement> {
+interface IModalProps extends React.HTMLAttributes<HTMLDialogElement> {
   ref: React.Ref<HTMLDialogElement | null>;
 }
 
-const Modal: React.FC<ModalProps> = ({ ref, children, ...props }) => {
+const Modal: React.FC<IModalProps> = ({ ref, children, ...props }) => {
   return createPortal(
     <dialog {...props} ref={ref} role="dialog">
       {children}

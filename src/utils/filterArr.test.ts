@@ -1,8 +1,8 @@
 import { filterArr } from "./filterArr";
-import type { CardInterface } from "../types";
+import type { ICard } from "../types";
 
 describe("filterArr", () => {
-  const mockCards: CardInterface[] = [
+  const mockCards: ICard[] = [
     {
       id: "1",
       author: "John Doe",

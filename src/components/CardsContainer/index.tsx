@@ -1,14 +1,14 @@
 import { useRef, useState } from "react";
-import type { CardInterface } from "../../types";
+import type { ICard } from "../../types";
 import Card from "../Card";
 import CardDialog from "../CardDialog";
 import * as Styled from "./cards-container.styles";
 
-interface CardContainerProps {
-  cards: CardInterface[];
+interface ICardContainerProps {
+  cards: ICard[];
 }
 
-const CardsContainer: React.FC<CardContainerProps> = ({ cards }) => {
+const CardsContainer: React.FC<ICardContainerProps> = ({ cards }) => {
   const modalRef = useRef<HTMLDialogElement>(null);
   const [modalImageUrl, setModalImageUrl] = useState<string | null>(null);
   const [modalAuthor, setModalAuthor] = useState<string | null>(null);
