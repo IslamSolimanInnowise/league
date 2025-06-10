@@ -1,9 +1,9 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
-import { theme } from "../../styled-components/themes";
+import { theme } from "@/styled-components/themes";
 import CardsContainer from "./index";
-import type { ICard } from "../../types";
+import type { ICard } from "@/types";
 
 let portalRoot: HTMLElement;
 

@@ -1,7 +1,7 @@
 import { FC, useContext } from "react";
-import logo from "../../assets/images/logo.jpg";
+import logo from "@/assets/images/logo.jpg";
 import * as Styled from "./header.styles";
-import { GlobalContext } from "../../contexts/global-context";
+import { GlobalContext } from "@/contexts/global-context";
 
 const Header: FC = () => {
   const { inputVal, setInputVal } = useContext(GlobalContext);

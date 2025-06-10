@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
-import { theme } from "../../styled-components/themes";
-import { GlobalContext } from "../../contexts/global-context";
+import { theme } from "@/styled-components/themes";
+import { GlobalContext } from "@/contexts/global-context";
 import Header from "./index";
 
 jest.mock("../../assets/images/logo.jpg", () => "mocked-image-path");

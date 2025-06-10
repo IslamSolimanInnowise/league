@@ -1,11 +1,11 @@
 import { FC, useContext, useEffect, useState } from "react";
-import { useCachedFetch } from "../../hooks/useCachedFetch/useCachedFetch";
-import type { ICard } from "../../types";
-import useDebounce from "../../hooks/useDebounce/useDebounce";
-import CardsContainer from "../CardsContainer";
+import { useCachedFetch } from "@/hooks/useCachedFetch/useCachedFetch";
+import type { ICard } from "@/types";
+import useDebounce from "@/hooks/useDebounce/useDebounce";
+import CardsContainer from "@components/CardsContainer";
 import * as Styled from "./gallery-view-styles";
-import { filterCardsArr } from "../../shared/utils/filterCardsArr";
-import { GlobalContext } from "../../contexts/global-context";
+import { filterCardsArr } from "@/shared/utils/filterCardsArr";
+import { GlobalContext } from "@/contexts/global-context";
 
 const GalleryView: FC = () => {
   const { inputVal } = useContext(GlobalContext);

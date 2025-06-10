@@ -1,7 +1,7 @@
 import { FC, useRef, useState } from "react";
-import type { ICard } from "../../types";
-import Card from "../Card";
-import CardDialog from "../CardDialog";
+import type { ICard } from "@/types";
+import Card from "@components/Card";
+import CardDialog from "@components/CardDialog";
 import * as Styled from "./cards-container.styles";
 
 interface ICardContainerProps {

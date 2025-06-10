@@ -1,7 +1,7 @@
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
-import { theme } from "../../styled-components/themes";
+import { theme } from "@/styled-components/themes";
 import CardDialog from "./index";
 
 let portalRoot: HTMLElement;

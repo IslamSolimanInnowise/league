@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
-import { theme } from "../../styled-components/themes";
+import { theme } from "@/styled-components/themes";
 import GalleryView from "./index";
-import type { ICard } from "../../types";
-import { useCachedFetch } from "../../hooks/useCachedFetch/useCachedFetch";
-import { GlobalContext } from "../../contexts/global-context";
+import type { ICard } from "@/types";
+import { useCachedFetch } from "@/hooks/useCachedFetch/useCachedFetch";
+import { GlobalContext } from "@/contexts/global-context";
 
 jest.mock("../../shared/ui/Modal", () => ({
   __esModule: true,

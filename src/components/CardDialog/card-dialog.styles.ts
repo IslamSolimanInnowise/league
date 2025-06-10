@@ -1,4 +1,4 @@
-import Modal from "../../shared/ui/Modal";
+import Modal from "@/shared/ui/Modal";
 import styled, { css } from "styled-components";
 
 export const StyledModal = styled(Modal)`

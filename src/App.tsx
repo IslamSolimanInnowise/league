@@ -1,7 +1,7 @@
 import { FC } from "react";
-import Header from "./components/Header";
-import GalleryView from "./components/GalleryView";
 import AppContext from "./contexts/global-context";
+import Header from "@components/Header";
+import GalleryView from "@components/GalleryView";
 
 const App: FC = () => {
   return (

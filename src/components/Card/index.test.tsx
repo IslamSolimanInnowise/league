@@ -1,9 +1,9 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
-import { theme } from "../../styled-components/themes";
+import { theme } from "@/styled-components/themes";
 import Card from "./index";
-import type { ICard } from "../../types";
+import type { ICard } from "@/types";
 
 const mockCard: ICard = {
   id: "1",
