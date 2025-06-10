@@ -12,7 +12,7 @@
 
 ## Stage 6: Add Testing => done
 
-## Stage 7: Refactor => in progress
+## Stage 7: Refactor => done
 
 - переименовать interface на I+тип => Done
 - FC => FC => Done
@@ -21,7 +21,7 @@
 - useState => useContext (app.tsx) => done
 - shared folder => done
 - separate folder for hooks => done
-- Retest
+- Retest => done
 
 ## Stage 8: fix imports (alias) => in progress
 

@@ -7,7 +7,6 @@ import type { ICard } from "../../types";
 import { useCachedFetch } from "../../hooks/useCachedFetch/useCachedFetch";
 import { GlobalContext } from "../../contexts/global-context";
 
-// Mock Modal component
 jest.mock("../../shared/ui/Modal", () => ({
   __esModule: true,
   default: ({ children }: { children: React.ReactNode }) => (
@@ -15,11 +14,10 @@ jest.mock("../../shared/ui/Modal", () => ({
   ),
 }));
 
-// Mock the custom hooks
 jest.mock("../../hooks/useCachedFetch/useCachedFetch");
 jest.mock("../../hooks/useDebounce/useDebounce", () => ({
   __esModule: true,
-  default: (val: string) => val, // Return the value immediately for testing
+  default: (val: string) => val,
 }));
 
 const mockedUseCachedFetch = useCachedFetch as jest.Mock;
@@ -53,7 +51,6 @@ describe("GalleryView Component", () => {
   };
 
   beforeEach(() => {
-    // Clear all mocks between tests
     jest.clearAllMocks();
   });
 
@@ -100,7 +97,6 @@ describe("GalleryView Component", () => {
 
     setup("Author 1");
 
-    // Verify filtering
     expect(screen.getByText("Author 1")).toBeInTheDocument();
     expect(screen.queryByText("Author 2")).not.toBeInTheDocument();
   });
@@ -154,7 +150,6 @@ describe("GalleryView Component", () => {
     const testInput = "Test Input";
     setup(testInput);
 
-    // Verify the context value is used
     expect(mockedUseCachedFetch).toHaveBeenCalledWith(
       "https://picsum.photos/v2/list"
     );
