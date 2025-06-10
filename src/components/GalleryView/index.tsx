@@ -1,7 +1,7 @@
 import { FC, useContext, useEffect, useState } from "react";
-import { useCachedFetch } from "../../hooks/useCachedFetch";
+import { useCachedFetch } from "../../hooks/useCachedFetch/useCachedFetch";
 import type { ICard } from "../../types";
-import useDebounce from "../../hooks/useDebounce";
+import useDebounce from "../../hooks/useDebounce/useDebounce";
 import CardsContainer from "../CardsContainer";
 import * as Styled from "./gallery-view-styles";
 import { filterCardsArr } from "../../shared/utils/filterCardsArr";

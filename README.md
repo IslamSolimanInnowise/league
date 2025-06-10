@@ -19,7 +19,8 @@
 - filterCardsArr => filterCardsArr => Done
 - filterCardsArr (filter + map) => reduce => Done
 - useState => useContext (app.tsx) => done
-- shared folder =>
+- shared folder => done
+- separate folder for hooks => done
 - Retest
 
 ## Stage 8: fix imports (alias) => in progress

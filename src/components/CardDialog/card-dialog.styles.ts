@@ -1,5 +1,5 @@
+import Modal from "../../shared/ui/Modal";
 import styled, { css } from "styled-components";
-import Modal from "../../ui/Modal";
 
 export const StyledModal = styled(Modal)`
   padding: 1rem;

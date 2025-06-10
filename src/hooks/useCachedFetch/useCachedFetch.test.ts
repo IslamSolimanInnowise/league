@@ -1,5 +1,5 @@
 import { renderHook, act } from "@testing-library/react";
-import { useCachedFetch } from "./useCachedFetch";
+import { useCachedFetch } from "./useCachedFetch/useCachedFetch";
 
 describe("useCachedFetch", () => {
   const mockData = { test: "data" };

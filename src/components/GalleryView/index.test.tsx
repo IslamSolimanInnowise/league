@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "../../styled-components/themes";
 import GalleryView from "./index";
 import type { ICard } from "../../types";
-import { useCachedFetch } from "../../hooks/useCachedFetch";
+import { useCachedFetch } from "../../hooks/useCachedFetch/useCachedFetch";
 
 // Mock the custom hook
 jest.mock("../../hooks/useCachedFetch");
