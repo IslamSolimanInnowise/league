@@ -1,7 +1,7 @@
-import { filterArr } from "./filterArr";
+import { filterCardsArr } from "./filterCardsArr";
 import type { ICard } from "../types";
 
-describe("filterArr", () => {
+describe("filterCardsArr", () => {
   const mockCards: ICard[] = [
     {
       id: "1",
@@ -21,7 +21,7 @@ describe("filterArr", () => {
   ];
 
   it("should filter cards by author name case-insensitively", () => {
-    const result = filterArr(mockCards, "john");
+    const result = filterCardsArr(mockCards, "john");
 
     expect(result).toHaveLength(2);
     expect(result[0].id).toBe("1");
@@ -29,13 +29,13 @@ describe("filterArr", () => {
   });
 
   it("should return empty array when no matches found", () => {
-    const result = filterArr(mockCards, "XYZ");
+    const result = filterCardsArr(mockCards, "XYZ");
 
     expect(result).toHaveLength(0);
   });
 
   it("should return all cards when search string is empty", () => {
-    const result = filterArr(mockCards, "");
+    const result = filterCardsArr(mockCards, "");
 
     expect(result).toHaveLength(mockCards.length);
     expect(result[0].id).toBe("1");
@@ -44,14 +44,14 @@ describe("filterArr", () => {
   });
 
   it("should modify the author name according to search term", () => {
-    const result = filterArr(mockCards, "john");
+    const result = filterCardsArr(mockCards, "john");
 
     expect(result[0].author).not.toBe("John Doe");
     expect(result[1].author).not.toBe("John Smith");
   });
 
   it("should preserve other card properties while filtering", () => {
-    const result = filterArr(mockCards, "jane");
+    const result = filterCardsArr(mockCards, "jane");
 
     expect(result).toHaveLength(1);
     expect(result[0]).toEqual({

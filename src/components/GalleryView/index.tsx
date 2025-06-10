@@ -2,9 +2,9 @@ import { FC, useEffect, useState } from "react";
 import { useCachedFetch } from "../../hooks/useCachedFetch";
 import type { ICard } from "../../types";
 import useDebounce from "../../hooks/useDebounce";
-import { filterArr } from "../../utils/filterArr";
 import CardsContainer from "../CardsContainer";
 import * as Styled from "./gallery-view-styles";
+import { filterCardsArr } from "../../utils/filterCardsArr";
 
 interface IGalleryViewProps {
   inputVal: string;
@@ -26,7 +26,7 @@ const GalleryView: FC<IGalleryViewProps> = ({ inputVal }) => {
     const trimmed = debouncedInputVal.trim();
 
     if (trimmed) {
-      const filtered = filterArr(originalData, trimmed);
+      const filtered = filterCardsArr(originalData, trimmed);
       setFilteredData(filtered);
     } else {
       setFilteredData(originalData);

@@ -16,8 +16,8 @@
 
 - переименовать interface на I+тип => Done
 - FC => FC => Done
-- filterArr => filterCardsArr => In Progress
-- filterArr (filter + map) => reduce
+- filterCardsArr => filterCardsArr => Done
+- filterCardsArr (filter + map) => reduce => Done
 - useState => useContext (app.tsx)
 - Retest
 
