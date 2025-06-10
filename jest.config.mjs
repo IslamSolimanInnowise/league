@@ -3,6 +3,8 @@ export default {
   testEnvironment: "jsdom",
   moduleNameMapper: {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "^@components/(.*)$": "<rootDir>/src/components/$1",
   },
   testPathIgnorePatterns: ["/node_modules/", "/dist/"],
   collectCoverage: true,
