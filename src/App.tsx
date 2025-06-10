@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import Header from "./components/Header";
 import GalleryView from "./components/GalleryView";
 
-const App: React.FC = () => {
+const App: FC = () => {
   const [inputVal, setInputVal] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

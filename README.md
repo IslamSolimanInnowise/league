@@ -15,8 +15,8 @@
 ## Stage 7: Refactor => in progress
 
 - переименовать interface на I+тип => Done
-- React.FC => FC => In Progress
-- filterArr => filterCardsArr
+- FC => FC => Done
+- filterArr => filterCardsArr => In Progress
 - filterArr (filter + map) => reduce
 - useState => useContext (app.tsx)
 - Retest

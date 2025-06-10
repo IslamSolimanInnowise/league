@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import type { ICard } from "../../types";
 import Card from "../Card";
 import CardDialog from "../CardDialog";
@@ -8,7 +8,7 @@ interface ICardContainerProps {
   cards: ICard[];
 }
 
-const CardsContainer: React.FC<ICardContainerProps> = ({ cards }) => {
+const CardsContainer: FC<ICardContainerProps> = ({ cards }) => {
   const modalRef = useRef<HTMLDialogElement>(null);
   const [modalImageUrl, setModalImageUrl] = useState<string | null>(null);
   const [modalAuthor, setModalAuthor] = useState<string | null>(null);

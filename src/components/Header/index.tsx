@@ -1,3 +1,4 @@
+import { FC } from "react";
 import logo from "../../assets/images/logo.jpg";
 import * as Styled from "./header.styles";
 
@@ -6,7 +7,7 @@ interface IHeaderProps {
   inputVal: string;
 }
 
-const Header: React.FC<IHeaderProps> = ({ onChange, inputVal }) => {
+const Header: FC<IHeaderProps> = ({ onChange, inputVal }) => {
   return (
     <Styled.Header>
       <Styled.Logo src={logo} alt="logo image of a photo album" />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useCachedFetch } from "../../hooks/useCachedFetch";
 import type { ICard } from "../../types";
 import useDebounce from "../../hooks/useDebounce";
@@ -10,7 +10,7 @@ interface IGalleryViewProps {
   inputVal: string;
 }
 
-const GalleryView: React.FC<IGalleryViewProps> = ({ inputVal }) => {
+const GalleryView: FC<IGalleryViewProps> = ({ inputVal }) => {
   const {
     data: originalData,
     error,

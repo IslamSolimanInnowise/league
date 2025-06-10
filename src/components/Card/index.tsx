@@ -1,13 +1,14 @@
 import { ICard } from "@/types";
 import * as Styled from "./card.styles";
 import DOMPurify from "dompurify";
+import { FC } from "react";
 
 interface ICardProps {
   handleClick: (modalImageUrl: string, author: string) => void;
   card: ICard;
 }
 
-const Card: React.FC<ICardProps> = ({
+const Card: FC<ICardProps> = ({
   card: { download_url, author },
   handleClick,
 }) => {
