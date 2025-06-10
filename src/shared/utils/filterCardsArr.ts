@@ -1,4 +1,4 @@
-import type { ICard } from "../types";
+import type { ICard } from "../../types";
 import { modifyAuthor } from "./modifyAuthor";
 
 export const filterCardsArr = (arr: ICard[], authorValue: string) => {

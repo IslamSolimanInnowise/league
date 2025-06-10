@@ -1,5 +1,5 @@
 import { filterCardsArr } from "./filterCardsArr";
-import type { ICard } from "../types";
+import type { ICard } from "../../types";
 
 describe("filterCardsArr", () => {
   const mockCards: ICard[] = [

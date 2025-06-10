@@ -1,13 +1,15 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import logo from "../../assets/images/logo.jpg";
 import * as Styled from "./header.styles";
+import { GlobalContext } from "../../contexts/global-context";
 
-interface IHeaderProps {
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  inputVal: string;
-}
+const Header: FC = () => {
+  const { inputVal, setInputVal } = useContext(GlobalContext);
 
-const Header: FC<IHeaderProps> = ({ onChange, inputVal }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputVal(e.target.value);
+  };
+
   return (
     <Styled.Header>
       <Styled.Logo src={logo} alt="logo image of a photo album" />
@@ -15,7 +17,7 @@ const Header: FC<IHeaderProps> = ({ onChange, inputVal }) => {
         <Styled.Input
           type="text"
           placeholder="Search for photos"
-          onChange={onChange}
+          onChange={handleChange}
           value={inputVal}
         />
       </form>

@@ -18,7 +18,8 @@
 - FC => FC => Done
 - filterCardsArr => filterCardsArr => Done
 - filterCardsArr (filter + map) => reduce => Done
-- useState => useContext (app.tsx)
+- useState => useContext (app.tsx) => done
+- shared folder =>
 - Retest
 
 ## Stage 8: fix imports (alias) => in progress

@@ -1,16 +1,15 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import { useCachedFetch } from "../../hooks/useCachedFetch";
 import type { ICard } from "../../types";
 import useDebounce from "../../hooks/useDebounce";
 import CardsContainer from "../CardsContainer";
 import * as Styled from "./gallery-view-styles";
-import { filterCardsArr } from "../../utils/filterCardsArr";
+import { filterCardsArr } from "../../shared/utils/filterCardsArr";
+import { GlobalContext } from "../../contexts/global-context";
 
-interface IGalleryViewProps {
-  inputVal: string;
-}
+const GalleryView: FC = () => {
+  const { inputVal } = useContext(GlobalContext);
 
-const GalleryView: FC<IGalleryViewProps> = ({ inputVal }) => {
   const {
     data: originalData,
     error,
