@@ -3,6 +3,7 @@ import type { ICard } from '@/types';
 import Card from '@components/Card';
 import CardDialog from '@components/CardDialog';
 import * as Styled from './cards-container.styles';
+import { modifyImgUrl } from '@/shared/utils/modifyImgUrl/modifyImgUrl';
 
 interface ICardContainerProps {
   cards: ICard[];
@@ -14,7 +15,7 @@ const CardsContainer: FC<ICardContainerProps> = ({ cards }) => {
   const [modalAuthor, setModalAuthor] = useState<string | null>(null);
 
   const handleCardClick = (modalImageUrl: string, author: string) => {
-    setModalImageUrl(() => modalImageUrl);
+    setModalImageUrl(() => modifyImgUrl(modalImageUrl));
     setModalAuthor(() => author);
     modalRef.current?.showModal();
   };

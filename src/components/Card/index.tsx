@@ -2,6 +2,7 @@ import { ICard } from '@/types';
 import * as Styled from './card.styles';
 import DOMPurify from 'dompurify';
 import { FC } from 'react';
+import { modifyImgUrl } from '@/shared/utils/modifyImgUrl/modifyImgUrl';
 
 interface ICardProps {
   handleClick: (modalImageUrl: string, author: string) => void;
@@ -9,6 +10,8 @@ interface ICardProps {
 }
 
 const Card: FC<ICardProps> = ({ card: { download_url, author }, handleClick }) => {
+  const thumbnail = modifyImgUrl(download_url);
+
   const plainAuthor = DOMPurify.sanitize(author, {
     ALLOWED_TAGS: [],
   });
@@ -16,7 +19,7 @@ const Card: FC<ICardProps> = ({ card: { download_url, author }, handleClick }) =
   return (
     <>
       <Styled.Figure>
-        <Styled.Thumbnail src={download_url} alt={`an image by ${plainAuthor}`} />
+        <Styled.Thumbnail src={thumbnail} alt={`an image by ${plainAuthor}`} />
         <figcaption dangerouslySetInnerHTML={{ __html: author }} />
         <Styled.Button onClick={() => handleClick(download_url, plainAuthor)}>See image in full size</Styled.Button>
       </Styled.Figure>
