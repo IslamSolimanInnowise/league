@@ -7,10 +7,11 @@ export const Figure = styled.figure`
     return css`
       background-color: ${cardBg};
       width: 18rem;
-      height: 18rem;
       border-radius: 1rem;
       padding: 1rem;
       display: flex;
+      gap: 1rem;
+      height: 100%;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
@@ -27,7 +28,9 @@ export const Figure = styled.figure`
 
 export const Thumbnail = styled.img`
   width: 100%;
-  height: 60%;
+  height: 100%;
+  min-height: 8rem;
+  max-height: 10rem;
   object-fit: cover;
 `;
 

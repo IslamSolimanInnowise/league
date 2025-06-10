@@ -18,8 +18,10 @@ const CardsContainer: FC<ICardContainerProps> = ({ cards }) => {
     setModalImageUrl(() => modifyImgUrl(modalImageUrl));
     setModalAuthor(() => author);
     modalRef.current?.showModal();
+    console.log('2');
   };
 
+  console.log('1');
   const onClose = () => {
     modalRef.current?.close();
   };
