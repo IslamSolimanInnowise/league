@@ -2,23 +2,28 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styled-components/themes";
+import { GlobalContext } from "../../contexts/global-context";
 import Header from "./index";
 
 jest.mock("../../assets/images/logo.jpg", () => "mocked-image-path");
 
-const mockOnChange = jest.fn();
-
 describe("Header Component", () => {
-  const setup = () => {
+  const mockSetInputVal = jest.fn();
+
+  const setup = (initialInputVal = "") => {
     return render(
       <ThemeProvider theme={theme}>
-        <Header onChange={mockOnChange} inputVal="" />
+        <GlobalContext.Provider
+          value={{ inputVal: initialInputVal, setInputVal: mockSetInputVal }}
+        >
+          <Header />
+        </GlobalContext.Provider>
       </ThemeProvider>
     );
   };
 
   beforeEach(() => {
-    mockOnChange.mockClear();
+    mockSetInputVal.mockClear();
   });
 
   test("renders logo image", () => {
@@ -37,20 +42,16 @@ describe("Header Component", () => {
     expect(searchInput).toHaveAttribute("type", "text");
   });
 
-  test("calls onChange when input value changes", () => {
+  test("calls setInputVal when input value changes", () => {
     setup();
     const searchInput = screen.getByPlaceholderText(/search for photos/i);
     fireEvent.change(searchInput, { target: { value: "test search" } });
-    expect(mockOnChange).toHaveBeenCalledTimes(1);
-    expect(mockOnChange).toHaveBeenCalledWith(expect.any(Object));
+    expect(mockSetInputVal).toHaveBeenCalledTimes(1);
+    expect(mockSetInputVal).toHaveBeenCalledWith("test search");
   });
 
-  test("input value updates correctly", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <Header onChange={mockOnChange} inputVal="test value" />
-      </ThemeProvider>
-    );
+  test("input value updates correctly from context", () => {
+    setup("test value");
     const searchInput = screen.getByPlaceholderText(
       /search for photos/i
     ) as HTMLInputElement;

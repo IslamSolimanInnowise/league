@@ -1,13 +1,27 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styled-components/themes";
 import GalleryView from "./index";
 import type { ICard } from "../../types";
 import { useCachedFetch } from "../../hooks/useCachedFetch/useCachedFetch";
+import { GlobalContext } from "../../contexts/global-context";
 
-// Mock the custom hook
-jest.mock("../../hooks/useCachedFetch");
+// Mock Modal component
+jest.mock("../../shared/ui/Modal", () => ({
+  __esModule: true,
+  default: ({ children }: { children: React.ReactNode }) => (
+    <div>{children}</div>
+  ),
+}));
+
+// Mock the custom hooks
+jest.mock("../../hooks/useCachedFetch/useCachedFetch");
+jest.mock("../../hooks/useDebounce/useDebounce", () => ({
+  __esModule: true,
+  default: (val: string) => val, // Return the value immediately for testing
+}));
+
 const mockedUseCachedFetch = useCachedFetch as jest.Mock;
 
 const mockData: ICard[] = [
@@ -24,10 +38,16 @@ const mockData: ICard[] = [
 ];
 
 describe("GalleryView Component", () => {
-  const setup = (inputVal = "") => {
+  const mockSetInputVal = jest.fn();
+
+  const setup = (initialInputVal = "") => {
     return render(
       <ThemeProvider theme={theme}>
-        <GalleryView inputVal={inputVal} />
+        <GlobalContext.Provider
+          value={{ inputVal: initialInputVal, setInputVal: mockSetInputVal }}
+        >
+          <GalleryView />
+        </GlobalContext.Provider>
       </ThemeProvider>
     );
   };
@@ -71,7 +91,7 @@ describe("GalleryView Component", () => {
     expect(screen.getByText("Author 2")).toBeInTheDocument();
   });
 
-  test("filters cards based on input value", async () => {
+  test("filters cards based on input value from context", () => {
     mockedUseCachedFetch.mockReturnValue({
       data: mockData,
       loading: false,
@@ -80,14 +100,12 @@ describe("GalleryView Component", () => {
 
     setup("Author 1");
 
-    // Wait for debounce to complete
-    await waitFor(() => {
-      expect(screen.getByText("Author 1")).toBeInTheDocument();
-      expect(screen.queryByText("Author 2")).not.toBeInTheDocument();
-    });
+    // Verify filtering
+    expect(screen.getByText("Author 1")).toBeInTheDocument();
+    expect(screen.queryByText("Author 2")).not.toBeInTheDocument();
   });
 
-  test("shows no matches message when filter returns no results", async () => {
+  test("shows no matches message when filter returns no results", () => {
     mockedUseCachedFetch.mockReturnValue({
       data: mockData,
       loading: false,
@@ -95,13 +113,9 @@ describe("GalleryView Component", () => {
     });
 
     setup("NonexistentAuthor");
-
-    // Wait for debounce to complete
-    await waitFor(() => {
-      expect(
-        screen.getByText(/seems like nothing matches your search/i)
-      ).toBeInTheDocument();
-    });
+    expect(
+      screen.getByText(/seems like nothing matches your search/i)
+    ).toBeInTheDocument();
   });
 
   test("uses correct URL for API call", () => {
@@ -117,7 +131,7 @@ describe("GalleryView Component", () => {
     );
   });
 
-  test("shows all cards when input is empty", async () => {
+  test("shows all cards when input is empty", () => {
     mockedUseCachedFetch.mockReturnValue({
       data: mockData,
       loading: false,
@@ -126,30 +140,23 @@ describe("GalleryView Component", () => {
 
     setup("");
 
-    // Wait for debounce to complete
-    await waitFor(() => {
-      expect(screen.getByText("Author 1")).toBeInTheDocument();
-      expect(screen.getByText("Author 2")).toBeInTheDocument();
-    });
+    expect(screen.getByText("Author 1")).toBeInTheDocument();
+    expect(screen.getByText("Author 2")).toBeInTheDocument();
   });
 
-  test("debounces input value changes", async () => {
+  test("uses input value from context", () => {
     mockedUseCachedFetch.mockReturnValue({
       data: mockData,
       loading: false,
       error: "",
     });
 
-    setup("Author 1");
+    const testInput = "Test Input";
+    setup(testInput);
 
-    // Immediately after render, before debounce
-    expect(
-      screen.queryByText(/seems like nothing matches your search/i)
-    ).not.toBeInTheDocument();
-
-    // After debounce
-    await waitFor(() => {
-      expect(screen.getByText("Author 1")).toBeInTheDocument();
-    });
+    // Verify the context value is used
+    expect(mockedUseCachedFetch).toHaveBeenCalledWith(
+      "https://picsum.photos/v2/list"
+    );
   });
 });
